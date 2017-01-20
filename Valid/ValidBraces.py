@@ -1,3 +1,15 @@
+"""
+ValidBraces Solver : A challenge proposed by CODEWARS communtiy - solved with Python2.7 .
+This code is written by Tarek Samaali the 20th of January 2017.
+
+All input strings will be nonempty, and will only consist of open parentheses '(' , closed parentheses ')', open brackets '[', closed brackets ']', open curly braces '{' and closed curly braces '}'.
+
+What is considered Valid? A string of braces is considered valid if all braces are matched with the correct brace. 
+For example:
+'(){}[]' and '([{}])' would be considered valid, while '(}', '[(])', and '[({})](]' would be considered invalid.
+
+"""
+
 class Validator :
     #fix the nature of the input components
     open=['(','[','{']

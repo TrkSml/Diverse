@@ -1,3 +1,9 @@
+"""
+This code was proposed as a solution to a challenge launched by CODEWARS community.
+Written by Tarek Samaali the 19th of January 2017
+
+"""
+
 from math import sqrt
 
 def verif(input):

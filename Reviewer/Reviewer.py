@@ -2,7 +2,7 @@
 
 This is a Dictionary-based Analyzer/Reviewer based on Levenshtein distance. 
 All you have to do first is define a dictionary (list/array) . Any word you type in will be matched with the most approximate
-item contained within the dictionat .
+item contained within the dictionary .
 
 """
 import numpy as np

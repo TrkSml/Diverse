@@ -1,4 +1,4 @@
-"""
+"""  
 This is an expression simplifier basically written with Python2.7.
 This is a solution I proposed to the CODEWARS Community.
 Written by Tarek Samaali the 20th of January 2017.

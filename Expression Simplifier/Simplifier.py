@@ -1,7 +1,9 @@
 """
-This is an expression simplifier basically written with Python2.7.
+This is a small Python expression simplifier basically written with Python2.7.
 This is a solution I proposed to the CODEWARS Community.
 Written by Tarek Samaali the 20th of January 2017.
+It works on any String multipolynomial expression you type like so :
+'3x-40y+5z-18y+6ab-2bcd-3x+12y-30z+2ab+2bcd+3x' would give '3x-46y-25z+8ab'.
 
 """
 
@@ -9,6 +11,22 @@ Written by Tarek Samaali the 20th of January 2017.
 import re 
 import itertools
 
+def integer_and_string(string):
+	"""
+	Divide the encountered strings into digit part and non-digit pary 
+	
+	"""
+	work=[el for el in string]
+	count=0
+        to_add=''
+        while(work[count].isdigit() and (count<len(string)-1)):
+          	to_add+=work[count]
+                count+=1
+	integer=''.join(work[0:count])
+	string=''.join(sorted(work[count:]))
+	return integer,string
+	
+	
 class simplifier :
 
     def __init__(self,string):
@@ -32,8 +50,8 @@ class simplifier :
 	
     """
 
-        list=[ ''.join(sorted(el)) for el in re.split('[+-]',self.string)]
-
+        list=[ el for el in re.split('[+-]',self.string)]
+	
         if self.operators()[0]=='-1' or self.string[0]=='+':
             list=list[1:]
         return list
@@ -62,20 +80,14 @@ class simplifier :
 
         tok=self.tokens()
 
-        for el in tok :
-            if re.match('^[0-9]',el[0]):
-
-                count=0
-                to_add=''
-
-                while(el[0][count].isdigit()):
-                    to_add+=el[0][count]
-                    count+=1
-                el[0]=el[0][count:]
-                el.append(int(to_add[::-1]))
-
+       for el in tok :
+	    if re.match('^[0-9]',el[0]):	    
+		    second,first=integer_and_string(el[0])
+		    el[0]=first
+		    el.append(second)	    
             elif re.match('^[a-z]',el[0]):
-                el.append(1)
+                    el.append(1)
+         
 
         return tok
     

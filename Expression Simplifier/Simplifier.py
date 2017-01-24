@@ -13,7 +13,7 @@ import itertools
 
 def integer_and_string(string):
 	"""
-	Divide the encountered strings into digit part and non-digit pary 
+	Divide the encountered strings into a digit part and a non-digit part 
 	
 	"""
 	work=[el for el in string]
@@ -78,7 +78,7 @@ class simplifier :
 
     """
 
-        tok=self.tokens()
+       tok=self.tokens()
 
        for el in tok :
 	    if re.match('^[0-9]',el[0]):	    
@@ -97,11 +97,11 @@ class simplifier :
         
     def simpl(self) :
 
-    """
+    	"""
 	This part aims to divide achieve simplifications. We thus have the total sums if the coefficients corresponding to the proper variables
 	taking into account the resulting sign
 
-    """	
+    	"""	
 
         tokens=self.extract()
         final_stack = []

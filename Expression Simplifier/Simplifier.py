@@ -1,9 +1,9 @@
 """
 This is a small Python expression simplifier basically written with Python2.7.
-This is a solution I proposed to the CODEWARS Community.
-Written by Tarek Samaali the 20th of January 2017.
+This is a solution I proposed the 20th of January 2017 to the CODEWARS Community.
 It works on any String multipolynomial expression you type like so :
 '3x-40y+5z-18y+6ab-2bcd-3x+12y-30z+2ab+2bcd+3x' would give '3x-46y-25z+8ab'.
+Multiplication and Division will be corporated later on.
 
 """
 

@@ -2,10 +2,10 @@
 """  
 
 This is a small Python expression simplifier basically written with Python2.7.
-This is a solution I proposed to the CODEWARS Community.
-Written by Tarek Samaali the 20th of January 2017.
+This is a solution I proposed the 20th of January 2017 to the CODEWARS Community.
 It works on any String multipolynomial expression you type like so :
 '3x-40y+5z-18y+6ab-2bcd-3x+12y-30z+2ab+2bcd+3x' would give '3x-46y-25z+8ab'.
+Multiplication and Division will be integrated later on.
 
 """
 
@@ -15,7 +15,11 @@ import itertools
 
 def integer_and_string(string):
 	"""
+<<<<<<< HEAD
       	Divide the encountered strings into digit part and non-digit pary 
+=======
+	Divide the encountered strings into a digit part and a non-digit part 
+>>>>>>> c68b8cd4729c4f9271ae59ed136682aaf9544611
 	
 	"""
 	work=[el for el in string]
@@ -79,7 +83,7 @@ class simplifier :
 
     	"""
 
-        tok=self.tokens()
+       tok=self.tokens()
 
         for el in tok :
 	    if re.match('^[0-9]',el[0]):	    
@@ -97,10 +101,19 @@ class simplifier :
         return [first[0],'+1' if (int(first[1])*int(first[2])+int(second[1])*int(second[2])>=0) else '-1', abs(int(first[1])*int(first[2])+int(second[1])*int(second[2]))] 
         
     def simpl(self) :
+<<<<<<< HEAD
     	"""
 	This part aims to divide achieve simplifications. We thus have the total sums if the coefficients corresponding to the proper variables
 	taking into account the resulting sign 
 	"""
+=======
+
+    	"""
+	This part aims to divide achieve simplifications. We thus have the total sums if the coefficients corresponding to the proper variables
+	taking into account the resulting sign
+
+    	"""	
+>>>>>>> c68b8cd4729c4f9271ae59ed136682aaf9544611
 
     	 	
         tokens=self.extract()

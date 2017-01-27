@@ -1,3 +1,9 @@
+"""
+This was written the 26th of January 2017.
+The code aims to determine the exact composition of a molecule and displays the number of the consisting atoms.
+An exemple is shown at the end.
+"""
+
 import re
 
 class Stack :
@@ -16,7 +22,6 @@ class Stack :
         self.stack.pop()
 
 class chemical_elements:
-	
     
 	def uniq(self,list):
   	     unique=[]
@@ -34,7 +39,13 @@ class chemical_elements:
 
 
 	def detect_positions(self,el,string):
-
+	    """
+	    
+	     We will work in the elements' positions at first. For this purpose, the function gives back an array
+	     of the wanted position. A little difficulty here to combine one-worded elements and two-worded ones.
+	    
+	    """
+	
 	    result=[]
 	    while(self.exist(el,string)) :
 	          result.append(self.exist(el,string)[0])
@@ -112,8 +123,9 @@ class chemical_elements:
             
 
 
-ch=chemical_elements()
-print(ch.parse_molecule('(C5H5)Fe(CO)2CH3'))
+		
+#ch=chemical_elements()
+#print(ch.parse_molecule('(C5H5)Fe(CO)2CH3'))
 
 
 

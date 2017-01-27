@@ -1,7 +1,11 @@
+
 """  
-This is an expression simplifier basically written with Python2.7.
+
+This is a small Python expression simplifier basically written with Python2.7.
 This is a solution I proposed to the CODEWARS Community.
 Written by Tarek Samaali the 20th of January 2017.
+It works on any String multipolynomial expression you type like so :
+'3x-40y+5z-18y+6ab-2bcd-3x+12y-30z+2ab+2bcd+3x' would give '3x-46y-25z+8ab'.
 
 """
 
@@ -9,15 +13,32 @@ Written by Tarek Samaali the 20th of January 2017.
 import re 
 import itertools
 
+def integer_and_string(string):
+	"""
+      	Divide the encountered strings into digit part and non-digit pary 
+	
+	"""
+	work=[el for el in string]
+	count=0
+        to_add=''
+        while(work[count].isdigit() and (count<len(string)-1)):
+          	to_add+=work[count]
+                count+=1
+	integer=''.join(work[0:count])
+	string=''.join(sorted(work[count:]))
+	return integer,string
+	
+	
 class simplifier :
 
     def __init__(self,string):
         self.string=string
     
     def operators(self):
-    """ 
-	The operands (+/-) are extracted and somehow transformed to be ready to use later on
-    """
+    	""" 
+    	The operands (+/-) are extracted and somehow transformed to be ready to use later on
+    
+   	"""
         op=filter(lambda x:x!='',re.split('[a-z0-9]',self.string))
 
         if re.match('^[0-9a-z]',self.string):
@@ -27,22 +48,22 @@ class simplifier :
         return [el + '1' for el in op]
         
     def terms(self):
-    """ 
+    	""" 
 	Here we're extracting the items with which we'll be building the needed tokens
 	
-    """
+	"""
 
-        list=[ ''.join(sorted(el)) for el in re.split('[+-]',self.string)]
-
+        list=[ el for el in re.split('[+-]',self.string)]
+	
         if self.operators()[0]=='-1' or self.string[0]=='+':
             list=list[1:]
         return list
         
     def tokens(self):
-    """
+    	"""
 	The items are associated with their signs
 
-    """
+    	"""
         list=self.terms()
         op=self.operators()
         all=[]
@@ -53,29 +74,21 @@ class simplifier :
         return all
         
     def extract(self):
-
-    """
-
+    	"""
 	We're constructing three-based tokens: first column for the variables, second column for the sign and third one for the multiplied integers
 
-    """
+    	"""
 
         tok=self.tokens()
 
         for el in tok :
-            if re.match('^[0-9]',el[0]):
-
-                count=0
-                to_add=''
-
-                while(el[0][count].isdigit()):
-                    to_add+=el[0][count]
-                    count+=1
-                el[0]=el[0][count:]
-                el.append(int(to_add[::-1]))
-
+	    if re.match('^[0-9]',el[0]):	    
+		    second,first=integer_and_string(el[0])
+		    el[0]=first
+		    el.append(second)	    
             elif re.match('^[a-z]',el[0]):
-                el.append(1)
+                    el.append(1)
+         
 
         return tok
     
@@ -84,13 +97,12 @@ class simplifier :
         return [first[0],'+1' if (int(first[1])*int(first[2])+int(second[1])*int(second[2])>=0) else '-1', abs(int(first[1])*int(first[2])+int(second[1])*int(second[2]))] 
         
     def simpl(self) :
-
-    """
+    	"""
 	This part aims to divide achieve simplifications. We thus have the total sums if the coefficients corresponding to the proper variables
-	taking into account the resulting sign
+	taking into account the resulting sign 
+	"""
 
-    """	
-
+    	 	
         tokens=self.extract()
         final_stack = []
         stack_compare = [el[0] for el in final_stack]

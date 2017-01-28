@@ -41,7 +41,7 @@ class chemical_elements:
 	def detect_positions(self,el,string):
 	    """
 	    
-	     We will work in the elements' positions at first. For this purpose, the function gives back an array
+	     We will work with the elements' positions at first. For this purpose, the function gives back an array
 	     of the wanted position. A little difficulty here to combine one-worded elements and two-worded ones.
 	    
 	    """

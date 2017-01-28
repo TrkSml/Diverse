@@ -15,11 +15,7 @@ import itertools
 
 def integer_and_string(string):
 	"""
-<<<<<<< HEAD
       	Divide the encountered strings into digit part and non-digit pary 
-=======
-	Divide the encountered strings into a digit part and a non-digit part 
->>>>>>> c68b8cd4729c4f9271ae59ed136682aaf9544611
 	
 	"""
 	work=[el for el in string]
@@ -101,19 +97,10 @@ class simplifier :
         return [first[0],'+1' if (int(first[1])*int(first[2])+int(second[1])*int(second[2])>=0) else '-1', abs(int(first[1])*int(first[2])+int(second[1])*int(second[2]))] 
         
     def simpl(self) :
-<<<<<<< HEAD
     	"""
 	This part aims to divide achieve simplifications. We thus have the total sums if the coefficients corresponding to the proper variables
 	taking into account the resulting sign 
 	"""
-=======
-
-    	"""
-	This part aims to divide achieve simplifications. We thus have the total sums if the coefficients corresponding to the proper variables
-	taking into account the resulting sign
-
-    	"""	
->>>>>>> c68b8cd4729c4f9271ae59ed136682aaf9544611
 
     	 	
         tokens=self.extract()
@@ -160,8 +147,8 @@ class simplifier :
 	
 	This part seems to be the hardest, I don't really think it was implemented with the best manners. 
 	However, some advanced tests gave satisfactory results.
-	All monomials appears in order of increasing number of variables. 
-	If two monomials have the same number of variables, they appears in lexicographic order.
+	All monomials appear in order of increasing number of variables. 
+	If two monomials have the same number of variables, they appear in lexicographic order.
 	There is no leading + sign, meaning that the first coefficient is positive.
 
 	"""

@@ -49,7 +49,7 @@ class chemical_elements:
 	    """
 	    
 	     We will work with the elements' positions at first. For this purpose, the function gives back an array
-	     of the wanted position. A little difficulty here to combine one-worded elements and two-worded ones.
+	     of the wanted position. A little difficulty here to combine single-word elements and double-word ones.
 	    
 	    """
 	

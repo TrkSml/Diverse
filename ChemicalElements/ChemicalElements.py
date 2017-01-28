@@ -7,7 +7,11 @@ An exemple is shown at the end.
 import re
 
 class Stack :
-    #fix the nature of the input components
+    """
+    The stack will be useful when dealing with brackets, curlies and parentheses. It will be used when determining the 
+    coefficients of the elements.
+    """
+
     open=['(','[','{']
     close=[')',']','}']
     stack=[]
@@ -24,13 +28,16 @@ class Stack :
 class chemical_elements:
     
 	def uniq(self,list):
+	     """
+	     ==> Unique elements of the formula
+	     """
   	     unique=[]
   	     for el in list:
        		if not(el in unique) :
             	   unique.append(el)
    	     return unique
 
-	def exist(self,el,string):
+	def exist(self,el,string):	     
 	     try:
 	            a=string.index(el)
 	            return [a,True]
@@ -55,7 +62,7 @@ class chemical_elements:
             
             
 	def parse_molecule(self,formula):
-
+		
 	    entities=self.uniq(re.findall('[A-Z][a-z]|[A-Z]',formula))
 	    sorted=entities
 	    sorted.sort(key=lambda x:len(x))
@@ -64,11 +71,20 @@ class chemical_elements:
 	    redlist=[]
 
 	    for el in sorted :
-
+		"""
+		We will run through the chemical elements one by one
+		
+		"""
+		
 	        positions=self.detect_positions(el,formula)
 	        totalcoeff=0
 	        prototype=formula
 
+		"""
+		Each element might appear in different positions within diverse forms.
+		We will go through the positions of each element.
+		"""
+		
 	        for pos in positions :
 
 	          if not(pos in redlist) :
@@ -77,7 +93,10 @@ class chemical_elements:
 	            count=pos 
 	            coeff=1
 	            mult=re.findall(re.escape(el)+'\d*',prototype)
-
+			
+		    """
+		    In case the considered element is followed by a coefficient, this will be taken into account. 
+		    """
 	            if mult: 
 
 	              try:
@@ -88,7 +107,13 @@ class chemical_elements:
 	              except IndexError: pass
                 
 	            s=Stack()
-
+		    
+		    """
+		    We're checking here if the found closing items (')',']','}') contain the current chemical element. 
+		    If so, the element coefficient is updated when necessary.
+		    
+		    """
+			
 	            while count<(len(prototype)):
 
 	                if prototype[count] in s.open: 

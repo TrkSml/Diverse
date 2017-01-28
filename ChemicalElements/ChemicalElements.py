@@ -149,8 +149,9 @@ class chemical_elements:
 
 
 		
-#ch=chemical_elements()
-#print(ch.parse_molecule('(C5H5)Fe(CO)2CH3'))
+#>>>ch=chemical_elements()
+#>>>ch.parse_molecule('(C5H5)Fe(CO)2CH3')
+#{'H': 8, 'C': 8, 'Fe': 1, 'O': 2}
 
 
 

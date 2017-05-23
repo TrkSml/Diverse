@@ -4,4 +4,6 @@ You may find some of my personal work. Most of it is inspired from diverse chall
 ## Main challenges on the internet :
 Codewars, Topchef ..
 
-* hello je suis un code*
+* hello je suis un c
+* bonjou
+* hellooo

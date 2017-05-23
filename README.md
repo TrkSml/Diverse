@@ -5,7 +5,8 @@ You may find some of my personal work. Most of it is inspired from diverse chall
 Codewars, Topchef ..
 
 ```
-hello je suis un c
- bonjou
- hellooo
+git add
+git commit
+git push
+git pull
 ```

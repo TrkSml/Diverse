@@ -2,6 +2,8 @@
 This code was proposed as a solution to a challenge launched by CODEWARS community.
 Written by Tarek Samaali the 19th of January 2017
 
+@author: Tarek Samaali
+
 """
 
 from math import sqrt

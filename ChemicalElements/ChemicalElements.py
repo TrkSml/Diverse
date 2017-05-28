@@ -2,6 +2,8 @@
 This was written the 26th of January 2017.
 The code aims to determine the exact composition of a molecule and displays the number of the consisting atoms.
 An example is shown at the end.
+
+@author: Tarek Samaali
 """
 
 import re

@@ -10,6 +10,8 @@ What is considered Valid? A string of braces is considered valid if all braces a
 For example:
 '(){}[]' and '([{}])' would be considered valid, while '(}', '[(])', and '[({})](]' would be considered invalid.
 
+@author: Tarek Samaali
+
 """
 
 class Validator :
